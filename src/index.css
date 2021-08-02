@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #576060;
+  font-family: 'Montserrat', sans-serif;
+  padding: 4rem;
+  padding-right: 2rem;
 }
 
 code {
