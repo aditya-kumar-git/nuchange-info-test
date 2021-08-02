@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCartReducer } from 'Redux/Actions'
-import { FullImage, PageContainer, PageText, SubText, BuyNowButton, BackContainerTwo, BackContainerOne } from './ProductStyle'
+import { FullImage, PageContainer, PageText, SubText, BuyNowButton, BackContainerTwo, BackContainerOne, NotInStock } from './ProductStyle'
 import { IoIosArrowBack } from 'react-icons/io';
 import { useHistory } from 'react-router-dom';
 
@@ -40,25 +40,32 @@ export default function ProductScreen(props) {
         <PageContainer>
             <BackContainerTwo>
                 <BackContainerOne
-                onClick={goBack}
-                >
+                    onClick={goBack}
+                    >
                     <IoIosArrowBack />
                 </BackContainerOne>
             </BackContainerTwo>
             <FullImage
                 src={pageData.url}
-            />
+                />
             <PageText>
                 {pageData.name}
             </PageText>
+            {
+                      pageData.stock === 0 &&
+                      <NotInStock>Not in stock</NotInStock>
+                  }
             <SubText>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ullam accusamus rerum quisquam laboriosam minima impedit commodi blanditiis libero explicabo quidem alias, aliquid voluptatum sapiente officiis esse eos perferendis architecto.
             </SubText>
-            <BuyNowButton
-                onClick={addToCart}
-            >
-                BUY NOW
-            </BuyNowButton>
+            {pageData.stock !== 0 &&
+
+                <BuyNowButton
+                    onClick={addToCart}
+                >
+                    BUY NOW
+                </BuyNowButton>
+            }
 
         </PageContainer>
     )

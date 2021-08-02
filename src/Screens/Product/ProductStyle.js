@@ -67,3 +67,13 @@ transition-duration: 500ms;
         opacity: 0.5;
     }
 `
+
+export const NotInStock = styled.div`
+background-color: red;
+color: white;
+font-weight: bold;
+font-size: 1rem;
+padding: 0.5rem;
+margin-top: 1rem;
+border-radius: 1rem;
+`
